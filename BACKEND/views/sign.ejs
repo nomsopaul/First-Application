@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+  <link href="/css/reg.css" rel="stylesheet" />
+
+  <title>Sign in & Sign up Form</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="forms-container">
+      <div class="signin-signup">
+        <form action="#" class="sign-in-form">
+          <div class="image_logo sign-in-logo">
+            <a href="/">
+              <img src="/img/New Logo 3.svg" alt="" class="eazzy_logo" style="height: 70px;">
+            </a>
+          </div>
+          <div style="border: 1px solid black;">
+
+          </div>
+          <h2 class="title">Sign in</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" id="inputEmail" placeholder="email" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="inputPassword" placeholder="Password" />
+          </div>
+          <span> Forgot password? <a href="/ResetPassword">click to reset.</a> </span>
+          <input class="btn btn-primary btn-block" onclick="change()" type="button" value="SIGN IN" id="loginbtn"></input>
+
+
+          <!-- <button class="btn btn-primary btn-block" type="button" id="loginbtn"><i class="fas fa-user-plus"></i> SIGN IN</button> -->
+
+          <p class="social-text">Or Sign in with social platforms</p>
+          <div class="social-media">
+            <button class="btn google-btn social-btn" type="button" id="googleLogin"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
+            <button class="btn facebook-btn social-btn" type="button" id="facebooklogin"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
+
+            <!-- <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a> -->
+          </div>
+          
+        </form>
+        <form action="#" class="sign-up-form">
+          <div class="image_logo sign-up-logo">
+            <a href="/">
+              <img src="/img/New Logo 3.svg" alt="" class="eazzy_logo" style="height: 70px;">
+            </a>
+          </div>
+          <h2 class="title">Sign up</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" id="username" placeholder="Username" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="useremail" placeholder="Email" />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="userpass" placeholder="Password" />
+          </div>
+
+          <!-- <input type="submit" class="btn" id="Verify" value="Send Verification" /> -->
+
+          <!-- <input type="submit" class="btn" id="signupbtn" value="Sign up" /> -->
+          <button class="btn btn-primary btn-block" type="button" id="signupbtn"><i class="fas fa-user-plus"></i> SIGN UP</button>
+
+
+        
+          <!-- <p class="social-text">Or Sign up with social platforms</p> -->
+
+          <div class="social-media">
+            <!-- <a href="#" class="social-icon">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a> -->
+            <!-- <button class="btn google-btn social-btn" type="button" id="googleLogin"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button> -->
+            <!-- <button class="btn facebook-btn social-btn" type="button" id="facebooklogin"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button> -->
+
+            <!-- <a href="#" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div> -->
+        </form>
+      </div>
+    </div>
+
+
+    <div class="panels-container">
+      <div class="panel left-panel">
+        <div class="content">
+          <h3>New here ?</h3>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+            ex ratione. Aliquid!
+          </p>
+          <button class="btn transparent" id="sign-up-btn">
+            Sign up
+          </button>
+        </div>
+        <img src="/img/login.svg" class="image" alt="" />
+      </div>
+      <div class="panel right-panel">
+        <div class="content">
+          <h3>One of us ?</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+            laboriosam ad deleniti.
+          </p>
+          <button class="btn transparent" id="sign-in-btn">
+            Sign in
+          </button>
+        </div>
+        <img src="/img/Sign up.svg" class="image" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/7.19.0/firebase-auth.js"></script>
+
+</body>
+
+<script type="module" >
+ var firebaseConfig = {
+  apiKey: "AIzaSyDJo458FYOjjVJsrp3Ix9YrpZg2nWZfn6Q",
+    authDomain: "laundry-515c6.firebaseapp.com",
+    databaseURL: "https://laundry-515c6-default-rtdb.firebaseio.com",
+    projectId: "laundry-515c6",
+    storageBucket: "laundry-515c6.appspot.com",
+    messagingSenderId: "466700400996",
+    appId: "1:466700400996:web:c778fc53ced8764e93e271"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  // firebase.analytics();
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+
+  import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
+  const app = initializeApp(firebaseConfig); 
+  const database = getDatabase(app);
+  var signupbtn=document.getElementById("signupbtn")
+  var emailsignup=document.getElementById("useremail")
+  var passswordsignup=document.getElementById("userpass")
+  var loginbtn=document.getElementById("loginbtn")
+
+
+
+  //================Signup With Email and Password==========================
+  signupbtn.onclick=function(){
+      signupbtn.disabled=true;
+      signupbtn.textContent="Registering Your Account! Please Wait";
+      firebase.auth().createUserWithEmailAndPassword(emailsignup.value,passswordsignup.value).then(function(response){
+        sendingVerifyEmail(signupbtn);
+
+
+            console.log(response);
+      })
+      .catch(function(error){
+        const errorCode = error.code;
+    const errorMessage = error.message;
+        signupbtn.disabled=false;
+        signupbtn.textContent="Sign Up";
+        alert(error.message);
+      })
+
+
+  }
+
+  function sendingVerifyEmail(button){
+     firebase.auth().currentUser.sendEmailVerification().then(function(response){
+                signupbtn.disabled=false;
+        signupbtn.textContent="Check Email To Continue";
+
+        window.alert("Verification Email Sent")
+     })
+     .catch(function(error){
+                signupbtn.disabled=false;
+        signupbtn.textContent="Failed";
+
+         console.log(error);
+     })
+  }
+  // end of it 
+  //================End Signup With Email and Password======================
+
+  //==========================Sign in With Email and Password============================
+
+  loginbtn.onclick=function(){
+    document.getElementById("loginbtn").value="SIGNING IN PLASE WAIT";
+      // loginbtn.textContent="Registering Your Account! Please Wait";
+
+  var inputEmail=document.getElementById("inputEmail").value;
+   var inputPassword=document.getElementById("inputPassword").value;
+   var loginbtn=document.getElementById("loginbtn");
+  firebase.auth().signInWithEmailAndPassword(inputEmail, inputPassword).then((userCredential) => {
+    // Signed in 
+
+    const user = userCredential.user;
+
+
+    set(ref(database, 'users/'+ user.uid),{
+      
+      inputEmail : inputEmail,
+      inputPassword : inputPassword,
+      
+     
+
+    })
+
+    alert('You are logged in ')
+    location='/index';
+
+    signupbtn.disabled=false;
+
+
+  })
+  .catch((error) => {
+
+    document.getElementById("loginbtn").value="TRY AGAIN";
+
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(error.message);
+
+  });
+}
+  //======================Sign With Email and Password
+ ///=================Login With google===========================
+ var googleLogin=document.getElementById("googleLogin");
+
+googleLogin.onclick=function(){
+    var provider=new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(provider).then(function(response){
+        var userobj=response.user;
+         var token=userobj.xa;
+         var provider="google";
+         var email=userobj.email;
+         if(token!=null && token!=undefined && token!=""){
+        //  sendDatatoServerPhp(email,provider,token,userobj.displayName);
+         }
+
+        console.log(response);
+        alert('You are logged in ')
+
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+
+
+}
+//======================Login With Facebook==========================
+var facebooklogin=document.getElementById("facebooklogin");
+   facebooklogin.onclick=function(){
+    var provider=new firebase.auth.FacebookAuthProvider();
+
+firebase.auth().signInWithPopup(provider).then(function(response){
+    var userobj=response.user;
+     var token=userobj.xa;
+     var provider="facebook";
+     var email=userobj.email;
+     if(token!=null && token!=undefined && token!=""){
+     sendDatatoServerPhp(email,provider,token,userobj.displayName);
+     }
+
+    console.log(response);
+})
+.catch(function(error){
+    console.log(error);
+})
+
+
+   }
+   //======================End Login With Facebook==========================
+//=======================End Login With Google==================
+
+   //===================Saving Login Details in My Server Using AJAX================
+  //  function sendDatatoServerPhp(email,provider,token,username){
+       
+  //       var xhr = new XMLHttpRequest();
+  //       //xhr.withCredentials = true;
+
+  //       xhr.addEventListener("readystatechange", function() {
+  //       if(this.readyState === 4) {
+  //           console.log(this.responseText);
+  //           if(this.responseText=="Login Successfull" || this.responseText=="User Created"){
+  //               alert("Login Successfull");
+  //               location='home.php';
+  //           }
+  //           else if(this.responseText=="Please Verify Your Email to Get Login"){
+  //               alert("Please Verify Your Email to Login")
+  //           }
+  //           else{
+  //               alert("Error in Login");
+  //           }
+  //       }
+  //       });
+
+  //       xhr.open("POST", "http://localhost/firebase/auth/login.php?email="+email+"&provider="+provider+"&username="+username+"&token="+token);
+  //       xhr.send();
+  //  }
+   //===========================End Saving Details in My Server=======================
+
+</script>
+
+
+
+
+</html>

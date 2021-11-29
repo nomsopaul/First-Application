@@ -1,0 +1,111 @@
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+  import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js";
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyDJo458FYOjjVJsrp3Ix9YrpZg2nWZfn6Q",
+    authDomain: "laundry-515c6.firebaseapp.com",
+    databaseURL: "https://laundry-515c6-default-rtdb.firebaseio.com",
+    projectId: "laundry-515c6",
+    storageBucket: "laundry-515c6.appspot.com",
+    messagingSenderId: "466700400996",
+    appId: "1:466700400996:web:c778fc53ced8764e93e271"
+  };
+
+  const app = initializeApp(firebaseConfig); 
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+signUp.addEventListener('click',(e) => {
+
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  var username = document.getElementById('username').value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+
+    set(ref(database, 'users/'+ user.uid),{
+      
+      password:password,
+      email:email,
+      username:username
+
+    })
+
+    alert('Please Verify Your Email')
+
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    alert(error.message);
+    // ..
+  });
+
+});
+
+loginbtn.addEventListener('click',(e)=> {
+  loginbtn.disabled=true;
+    loginbtn.textContent="Logging In Please Wait.."
+
+  var loginemail=document.getElementById("inputEmail").value;
+   var loginpassword=document.getElementById("inputPassword").value;
+   var loginbtn=document.getElementById("loginbtn");
+  firebase.auth().signInWithEmailAndPassword(loginemail, loginpassword)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+
+    set(ref(database, 'users/'+ user.uid),{
+      
+      loginemail : inputEmail,
+      loginpassword : inputPassword,
+     
+
+    })
+    alert('You are logged in ')
+
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(error.message);
+
+  });
+})
+
+
+const user = auth.currentUser;
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+Verify.addEventListener('click',(e) => {
+  var user = firebase.auth().currentUser;
+  user.sendEmailVerification(). then(function(){
+    window.alert("Verification Email Sent")
+  })
+})
+  
+// logout.addEventListener('click',(e) => {
+//   signOut(auth).then(()=> {
+
+//   }).catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     alert(errorMessage)
+//   });
+// });
